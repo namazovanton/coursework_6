@@ -1,13 +1,13 @@
 from django.db import models
 
 
-
 class Ad(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название товара')
     price = models.PositiveIntegerField()
     description = models.TextField()
     author = models.ForeignKey('users.User', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(null=True, blank=True, upload_to="ads_pics")
 
     class Meta:
         verbose_name = 'Объявление'

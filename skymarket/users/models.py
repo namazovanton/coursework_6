@@ -35,11 +35,11 @@ class User(AbstractBaseUser):
         return self.role == UserRoles.USER
 
     @property
-    def is_superuser(self, perm, obj=None):
+    def is_superuser(self):
         return self.is_admin
 
     @property
-    def is_staff(self, app_label):
+    def is_staff(self):
         return self.is_admin
 
     def has_perm(self, perm, obj=None):
